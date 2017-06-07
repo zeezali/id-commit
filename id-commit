@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# id-commit 
+# git commit messages with IDs prefixed
+# Author: Zee Zali 
+
+echo -n "ID (e.g. AND-467): "
+read id
+
+echo -n "Message: "
+read msg
+
+commit_msg="$id: $msg"
+
+echo -n "git commit -m \"$commit_msg\" (y/n)? "
+read user_resp
+if [ "$user_resp" = "y" ] || [ "$user_resp" = "" ]; then
+  git commit -m "$commit_msg"
+else
+  echo "Aborted"
+
+fi
+
